@@ -1,0 +1,25 @@
+;------------------------------------------------------------------------
+;Developed By:
+;    Vaneeswaran N 
+;    www.vaneeswaran.com
+;Description : A simple Tera Term Langage script that automates serial consol login 
+;To know more on how to use it please refer : https://vaneeswarann.blogspot.com/2018/02/how-to-write-a-simple-ttl-script.html
+;------------------------------------------------------------------------
+
+connect '/C=10'    ;connect to com port 10
+
+
+UsernamePrompt = 'login:'  ; setting username prompt
+Username = 'root'          ; variable to hold the username value
+PasswordPrompt = ' '       ; setting username prompt 
+Password = 'admin@123'     ; variable to hold the password
+
+; running an infinite while loop so whenever login reboot happens it will b automatically logged in
+while 1      
+ wait   UsernamePrompt ;waiting for the userpromt
+ sendln Username   ;feeding the username once prompts 
+
+ wait   PasswordPrompt
+ sendln Password
+endwhile
+;auto login complete.
